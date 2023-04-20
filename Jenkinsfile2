@@ -2,7 +2,7 @@
 pipeline {
   agent any
   environment {
-       imagename = "austinobioma/december-docker"
+       imagename = "okezienwaiwu/december-docker"
        registryCredential = 'DockerHub'
        dockerImage = ''
            }

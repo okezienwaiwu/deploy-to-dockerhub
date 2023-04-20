@@ -9,7 +9,7 @@ def remote = [:]
 pipeline {
   agent any
   environment {
-       imagename = "austinobioma/october-docker"
+       imagename = "okezienwaiwu/october-docker"
        registryCredential = 'DockerHub'
        dockerImage = ''
            }
@@ -40,7 +40,7 @@ pipeline {
       stage('Remote SSH') {
           steps{
       sshCommand remote: remote, command: "ls -lrt"
-      sshCommand remote: remote, command: "docker run -d -p 80:8080 austinobioma/october-docker:7"
+      sshCommand remote: remote, command: "docker run -d -p 80:8080 okezienwaiwu/october-docker:7"
       }
       }
     
