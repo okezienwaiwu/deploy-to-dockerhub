@@ -1,10 +1,3 @@
-def remote = [:]
-    remote.name = 'Docker-server'
-    remote.host = '34.205.246.217'
-    remote.user = 'ubuntu'
-    remote.password = 'December2023#'
-    remote.allowAnyHosts = true
-
 
 pipeline {
   agent any
@@ -36,14 +29,6 @@ pipeline {
                                     }
                              }
                   }
-     
-      stage('Remote SSH') {
-          steps{
-      sshCommand remote: remote, command: "ls -lrt"
-      sshCommand remote: remote, command: "docker run -d -p 80:8080 okezienwaiwu/october-docker:7"
-      }
-      }
-    
      stage('Remove Unused docker image') {
           steps{
               sh "docker rmi $imagename:$BUILD_NUMBER"
